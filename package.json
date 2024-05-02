@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "server": "nodemon Backend/server.js",
-		"start": "node Backend/server.js",
+		"start": "node server.js",
 		"build": "npm install"
   },
   "author": "",
