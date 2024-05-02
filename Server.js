@@ -3,7 +3,7 @@ import express from 'express';
 import dotenv, { config } from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
-import path from 'path'
+
 // File imports
 import { ConnectToMongoose } from './DB/connectToMongoDb.js';
 import Authroute from './Routes/Auth.routes.js'
@@ -17,7 +17,6 @@ dotenv.config();
 
 // Enviroment variables
 const PORT = process.env.PORT || 5000;
-const __dirname = path.resolve();
 
 // Middlewares
 app.use(express.json());
@@ -28,13 +27,6 @@ app.use('/api/auth', Authroute);
 app.use("/api/messages", Messageroute);
 app.use("/api/users", userRoutes);
 
-app.use(express.static(path.join(__dirname,"/Frontend/dist")))
-
-
-
-app.get("*" ,(req,res)=>{
-   res.sendFile(path.join(__dirname,"Frontend","dist",index.html))
-})
 
 
 
